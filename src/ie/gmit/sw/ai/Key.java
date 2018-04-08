@@ -1,11 +1,11 @@
 package ie.gmit.sw.ai;
 
 public class Key {
-	public static void alterKey(char[] newKey) {
+	public static char[] alterKey(char[] newKey) {
 		switch((int)(Math.random()*100)) {
 			case 1:
 			case 2:
-				System.out.println("2%");
+				return(keyReverse(newKey));
 			case 3:
 			case 4:
 				System.out.println("2%");
@@ -21,5 +21,16 @@ public class Key {
 			default:
 				System.out.println("90%");
 		}
+		return newKey;
+	}
+	
+	public static char[] keyReverse(char[] newKey) {	
+		String tempKey = new String(newKey);
+		
+		String key = new StringBuilder(tempKey).reverse().toString();
+		
+		newKey = key.toCharArray();
+		
+		return newKey;
 	}
 }
