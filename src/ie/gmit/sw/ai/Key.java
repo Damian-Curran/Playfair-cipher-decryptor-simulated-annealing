@@ -8,7 +8,7 @@ public class Key {
 				return(keyReverse(newKey));
 			case 3:
 			case 4:
-				System.out.println("2%");
+				return(keySwapRows(newKey, (int)(Math.random()*5), (int)(Math.random()*5)));
 			case 5:
 			case 6:
 				System.out.println("2%");
@@ -30,6 +30,19 @@ public class Key {
 		String key = new StringBuilder(tempKey).reverse().toString();
 		
 		newKey = key.toCharArray();
+		
+		return newKey;
+	}
+	
+	public static char[] keySwapRows(char[] newKey, int r1, int r2) {
+		int i;
+		char temp;
+		
+		for (i = 0; i < 5; i++) {
+			temp = newKey[r1 * 5 + i];
+			newKey[r1 * 5 + i] = newKey[r2 * 5 + i];
+			newKey[r2 * 5 + i] = temp;
+		}
 		
 		return newKey;
 	}
