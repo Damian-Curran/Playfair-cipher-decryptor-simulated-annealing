@@ -17,6 +17,13 @@ public class SimulatedAnnealing {
 		
 		quadgrams = QuadGrams.readQuadgrams(input2);
 		
-		//System.out.println(quadgrams);
+		SimulatedAnnealing.simulatedAnnealing(r, k, content, quadgrams);
+	}
+	
+	public static void simulatedAnnealing(char[] r, char[] k, String content, Map<String, Integer> quadgrams)
+	{
+		long totalQuadgrams = quadgrams.values().stream().mapToLong(i->i).sum();
+		
+		System.out.println(totalQuadgrams);
 	}
 }
