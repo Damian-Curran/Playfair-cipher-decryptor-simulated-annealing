@@ -8,7 +8,6 @@ public class CipherBreaker {
 		String content = FileParser.gramReader("cyphertext.txt").readLine();
 		BufferedReader input2 = FileParser.gramReader("4grams.txt");
 		
-		System.out.println(content);
-		System.out.println(input2.readLine());
+		String validContent = FileParser.validateText(content);
 	}
 }
