@@ -14,6 +14,9 @@ public class SimulatedAnnealing {
 	{
 		String stringKey = "ABCDEFGHIKLMNOPQRSTUVWXYZ";
 		double temp;
+		char[] randomKey = stringKey.toCharArray();
+		randomKey = Key.keyShuffle(randomKey);
+		
 		parent = stringKey.toCharArray();
 		
 		Map<String, Integer> quadgrams = new HashMap<String, Integer>();
@@ -25,7 +28,7 @@ public class SimulatedAnnealing {
 		SimulatedAnnealing.simulatedAnnealing(r, k, content, quadgrams, temp);
 	}
 	
-	public static void simulatedAnnealing(char[] r, char[] k, String content, Map<String, Integer> quadgrams, double temp)
+	public static void simulatedAnnealing(char[] r, char[] k, String content, Map<String, Integer> quadgrams, double temp) throws IOException
 	{
 		rand = new SecureRandom();
 		char[] child = parent.clone();

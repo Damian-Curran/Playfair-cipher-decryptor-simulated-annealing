@@ -104,8 +104,9 @@ public class Key {
 	
 	public static char[] keyShuffle(char[] newKey) {
 		int i;
+		
 		for (i = 0; i < 25; i++) {
-			keySwapChars(newKey, (int)Math.random() * 25, (int)Math.random() * 25);
+			newKey = keySwapChars(newKey, (int)(Math.random()*25), (int)(Math.random()*25));
 		}
 		
 		return newKey;
