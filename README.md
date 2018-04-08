@@ -95,3 +95,19 @@ square.
 
 Note that these weaknesses rely on repetition and frequency counts and, in the absence of cribs, require enough cipher-text to reveal
 patterns. In practice, this implies that at least 200 characters of cipher-text are available. 
+
+## The Simulated Annealing Algorithm
+
+Simulated annealing (SA) is an excellent approach for breaking a cipher using a randomly
+generated key. Unlike conventional Hill Climbing algorithms, that are easily side-tracked by
+local optima, SA uses randomization to avoid heuristic plateaux and attempt to find a global
+maxima solution. The following pseudocode shows how simulated annealing can be used break
+a Playfair Cipher. Note that the initial value of the variables temp and transitions can have a
+major impact on the success of the SA algorithm. Both variables control the cooling schedule
+of SA and should be experimented with for best results (see slide 20 of the lecture notes on
+Heuristic Search).
+
+The generation of a random 25-letter key on line 1 only requires that we shuffle a 25 letter
+alphabet. A simple algorithm for achieving this was published in 1938 by Fisher and Yates.
+The Fisher–Yates Shuffle generates a random permutation of a finite sequence, i.e. it randomly
+shuffles an array key of n elements (indices 0..n-1) 
