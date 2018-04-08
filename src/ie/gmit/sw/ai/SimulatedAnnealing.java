@@ -27,6 +27,7 @@ public class SimulatedAnnealing {
 	
 	public static void simulatedAnnealing(char[] r, char[] k, String content, Map<String, Integer> quadgrams, double temp)
 	{
+		rand = new SecureRandom();
 		char[] child = parent.clone();
 		double maxScore, bestScore, score, diff, prob;
 		int transitions = 50000;
@@ -64,6 +65,10 @@ public class SimulatedAnnealing {
 						maxScore = score;
 						parent = child.clone();
 					}
+				}
+				
+				if (maxScore > bestScore){
+					bestScore = maxScore;
 				}
 			}
 		}
