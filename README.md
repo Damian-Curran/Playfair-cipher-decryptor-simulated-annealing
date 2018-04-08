@@ -90,3 +90,8 @@ letters the with letters immediately above.
 3. The most frequently occurring cipher-text letters are likely to be near the most frequent
 English letters, i.e. E, T, A and O in the 5x5 square. This helps to reconstruct the 5x5
 square.
+
+### In this project we will be exploiting weakness (2)  
+
+Note that these weaknesses rely on repetition and frequency counts and, in the absence of cribs, require enough cipher-text to reveal
+patterns. In practice, this implies that at least 200 characters of cipher-text are available. 
