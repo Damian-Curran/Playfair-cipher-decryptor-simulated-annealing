@@ -1,7 +1,9 @@
 package ie.gmit.sw.ai;
 
 public class Key {
+	//method that randomizes what changes to apply to the key
 	public static char[] alterKey(char[] newKey) {
+		//6 chances, 5 have a 2% chance of occuring, the last has 90%
 		switch((int)(Math.random()*100)) {
 			case 1:
 			case 2:
@@ -23,9 +25,11 @@ public class Key {
 		}
 	}
 	
+	//method to reverse key
 	public static char[] keyReverse(char[] newKey) {	
 		String tempKey = new String(newKey);
 		
+		//uses stringBuilder to reverse the key
 		String key = new StringBuilder(tempKey).reverse().toString();
 		
 		newKey = key.toCharArray();
@@ -33,10 +37,12 @@ public class Key {
 		return newKey;
 	}
 	
+	//method to swap 2 rows in the key
 	public static char[] keySwapRows(char[] newKey, int r1, int r2) {
 		int i;
 		char temp;
 		
+		//for loop to change the 5 values
 		for (i = 0; i < 5; i++) {
 			temp = newKey[r1 * 5 + i];
 			newKey[r1 * 5 + i] = newKey[r2 * 5 + i];
@@ -46,9 +52,12 @@ public class Key {
 		return newKey;
 	}
 	
+	//method to swap 2 columns in the key
 	public static char[] keySwapCols(char[] newKey, int c1, int c2) {
 		int i;
 		char temp;
+		
+		//for loop to change the 5 values
 		for (i = 0; i < 5; i++) {
 			temp = newKey[i * 5 + c1];
 			newKey[i * 5 + c1] = newKey[i * 5 + c2];
@@ -58,6 +67,7 @@ public class Key {
 		return newKey;
 	}
 	
+	//method to swap 2 characters in the key
 	public static char[] keySwapChars(char[] newKey, int i1, int i2) {	
 		char temp = newKey[i1];
 		newKey[i1] = newKey[i2];
@@ -66,14 +76,18 @@ public class Key {
 		return newKey;
 	}
 	
+	//method to flip all the rows in the key
 	public static char[] keyFlipRows(char[] newKey) {
 		int i;
 		char temp;
 		int l = -1;
 		
+		//j controls the the last 2 rows, last row first iteration, second last in the second iteration
 		for(int j = 4; j > 2; j--)
 		{
+			//l controls the first 2 rows
 			l++;
+			//i controls the position of each character in the rows
 			for (i = 0; i < 5; i++) {
 				temp = newKey[l * 5 + i];
 				newKey[l * 5 + i] = newKey[j * 5 + i];
@@ -84,14 +98,18 @@ public class Key {
 		return newKey;
 	}
 	
+	//method to flip all the columns in the key
 	public static char[] keyFlipCols(char[] newKey) {
 		int i;
 		char temp;
 		int l = -1;
 		
+		//j controls the the last 2 columns, last column first iteration, second last in the second iteration
 		for(int j = 4; j > 2; j--)
 		{
+			//l controls the first 2 columns
 			l++;
+			//i controls the position of each character in the columns
 			for (i = 0; i < 5; i++) {
 				temp = newKey[i * 5 + l];
 				newKey[i * 5 + l] = newKey[i * 5 + j];
@@ -102,6 +120,7 @@ public class Key {
 		return newKey;
 	}
 	
+	//method which is used for shuffling a key at the start of the run cycle
 	public static char[] keyShuffle(char[] newKey) {
 		int i;
 		
