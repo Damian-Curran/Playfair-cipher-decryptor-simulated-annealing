@@ -20,8 +20,6 @@ public class FileParser {
 		String valText2 = "";
 		char[] temp = content.toUpperCase().toCharArray();
 		
-		System.out.println(temp.length);
-		
 		for (int i = 0; i < temp.length - 1; i+=2) {
 			if (temp[i] == temp[i+1]) {
 				valText2 += temp[i];
