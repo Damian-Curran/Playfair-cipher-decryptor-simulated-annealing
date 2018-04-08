@@ -43,6 +43,8 @@ public class SimulatedAnnealing {
 			{
 				k = content.toCharArray();
 				child = parent.clone();
+				
+				Key.alterKey(child);
 			}
 		}
 	}
