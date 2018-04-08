@@ -27,6 +27,8 @@ public class SimulatedAnnealing {
 	{
 		char[] child = parent.clone();
 		double maxScore, bestScore;
+		int transitions = 50000;
+		int count = 0;
 		long totalQuadgrams = quadgrams.values().stream().mapToLong(i->i).sum();
 		
 		k = Decryptor.decipher(r, k, child);
@@ -34,5 +36,14 @@ public class SimulatedAnnealing {
 		maxScore = HeuristicValue.totalScore(quadgrams, totalQuadgrams, k);
 		
 		bestScore = maxScore;
+		
+		for(double i = temp; i > 0; i -= 1)
+		{
+			for(count = 50000; count > 0; count--)
+			{
+				k = content.toCharArray();
+				child = parent.clone();
+			}
+		}
 	}
 }
