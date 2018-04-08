@@ -23,13 +23,13 @@ public class SimulatedAnnealing {
 	public static void simulatedAnnealing(char[] r, char[] k, String content, Map<String, Integer> quadgrams)
 	{
 		char[] child = parent.clone();
-		double maxScore;
+		double maxScore, bestScore;
 		long totalQuadgrams = quadgrams.values().stream().mapToLong(i->i).sum();
 		
 		k = Decryptor.decipher(r, k, child);
 		
 		maxScore = HeuristicValue.totalScore(quadgrams, totalQuadgrams, k);
 		
-		System.out.println(maxScore);
+		bestScore = maxScore;
 	}
 }
