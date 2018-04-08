@@ -80,3 +80,13 @@ the with letters on their immediate left.
 Replace any letters that appear on the same column with the letters immediately below,
 wrapping back around the top of the column if necessary. Decrypt by replacing ciphertext
 letters the with letters immediately above.
+
+### The Playfair Cipher suffers from three basic weaknesses
+
+1. Repeated plain-text digrams will create repeated cipher-text digrams.
+
+2. Digram frequency counts can reveal the most frequently occurring English digrams.
+
+3. The most frequently occurring cipher-text letters are likely to be near the most frequent
+English letters, i.e. E, T, A and O in the 5x5 square. This helps to reconstruct the 5x5
+square.
