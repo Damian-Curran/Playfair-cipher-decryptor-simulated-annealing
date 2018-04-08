@@ -26,7 +26,7 @@ public class SimulatedAnnealing {
 	public static void simulatedAnnealing(char[] r, char[] k, String content, Map<String, Integer> quadgrams, double temp)
 	{
 		char[] child = parent.clone();
-		double maxScore, bestScore;
+		double maxScore, bestScore, score, diff;
 		int transitions = 50000;
 		int count = 0;
 		long totalQuadgrams = quadgrams.values().stream().mapToLong(i->i).sum();
@@ -39,12 +39,23 @@ public class SimulatedAnnealing {
 		
 		for(double i = temp; i > 0; i -= 1)
 		{
-			for(count = 50000; count > 0; count--)
+			for(count = transitions; count > 0; count--)
 			{
 				k = content.toCharArray();
 				child = parent.clone();
 				
 				Key.alterKey(child);
+				
+				k = Decryptor.decipher(r, k, child);
+				
+				score = HeuristicValue.totalScore(quadgrams, totalQuadgrams, k);
+				
+				diff = score - maxScore;
+				
+				if(diff > 0){
+					maxScore = score;
+					parent = child.clone();
+				}
 			}
 		}
 	}
