@@ -17,7 +17,7 @@ public class Key {
 				return(keyFlipRows(newKey));
 			case 9:
 			case 10:
-				System.out.println("2%");
+				return(keyFlipCols(newKey));
 			default:
 				return(keySwapChars(newKey, (int)(Math.random()*25), (int)(Math.random()*25)));
 		}
@@ -78,6 +78,24 @@ public class Key {
 				temp = newKey[l * 5 + i];
 				newKey[l * 5 + i] = newKey[j * 5 + i];
 				newKey[j * 5 + i] = temp;
+			}
+		}
+		
+		return newKey;
+	}
+	
+	public static char[] keyFlipCols(char[] newKey) {
+		int i;
+		char temp;
+		int l = -1;
+		
+		for(int j = 4; j > 2; j--)
+		{
+			l++;
+			for (i = 0; i < 5; i++) {
+				temp = newKey[i * 5 + l];
+				newKey[i * 5 + l] = newKey[i * 5 + j];
+				newKey[i * 5 + j] = temp;
 			}
 		}
 		
