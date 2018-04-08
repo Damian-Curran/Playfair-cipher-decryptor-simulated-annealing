@@ -32,6 +32,18 @@ public class Decryptor {
 					k[i+1] = child[c2_ind - 1];
 				}
 			}
+			else if (c1_col == c2_col ) {
+				if (c1_row == 0) {
+					k[i] = child[c1_ind + 20];
+					k[i+1] = child[c2_ind - 5];
+				} else if (c2_row == 0) {
+					k[i] = child[c1_ind - 5];
+					k[i+1] = child[c2_ind + 20];
+				} else {
+					k[i] = child[c1_ind - 5];
+					k[i+1] = child[c2_ind - 5];
+				}
+			}
 		}
 		return k;
 	}
