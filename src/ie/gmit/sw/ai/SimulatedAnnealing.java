@@ -81,5 +81,6 @@ public class SimulatedAnnealing {
 				iter++;
 			}
 		}
+		FileParser.output(bestText);
 	}
 }

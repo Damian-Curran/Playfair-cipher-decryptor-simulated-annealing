@@ -1,8 +1,10 @@
 package ie.gmit.sw.ai;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileParser {
@@ -37,5 +39,16 @@ public class FileParser {
 		}
 		
 		return valText2;
+	}
+	
+	public static void output(String text) throws IOException
+	{
+		BufferedWriter bufferedWriter = new BufferedWriter (new FileWriter("result.txt"), text.length());
+		
+		char[] outputText = text.toCharArray();
+		
+		bufferedWriter.write(outputText);
+		
+		bufferedWriter.close();
 	}
 }
