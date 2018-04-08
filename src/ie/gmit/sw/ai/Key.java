@@ -11,7 +11,7 @@ public class Key {
 				return(keySwapRows(newKey, (int)(Math.random()*5), (int)(Math.random()*5)));
 			case 5:
 			case 6:
-				System.out.println("2%");
+				return(keySwapCols(newKey, (int)(Math.random()*5), (int)(Math.random()*5)));
 			case 7:
 			case 8:
 				System.out.println("2%");
@@ -42,6 +42,18 @@ public class Key {
 			temp = newKey[r1 * 5 + i];
 			newKey[r1 * 5 + i] = newKey[r2 * 5 + i];
 			newKey[r2 * 5 + i] = temp;
+		}
+		
+		return newKey;
+	}
+	
+	public static char[] keySwapCols(char[] newKey, int c1, int c2) {
+		int i;
+		char temp;
+		for (i = 0; i < 5; i++) {
+			temp = newKey[i * 5 + c1];
+			newKey[i * 5 + c1] = newKey[i * 5 + c2];
+			newKey[i * 5 + c2] = temp;
 		}
 		
 		return newKey;
