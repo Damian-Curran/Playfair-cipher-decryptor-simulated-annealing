@@ -31,7 +31,7 @@ public class SimulatedAnnealing {
 		char[] child = parent.clone();
 		double maxScore, bestScore, score, diff, prob;
 		int transitions = 50000;
-		int count = 0;
+		int count = 0, iter = 0;
 		long totalQuadgrams = quadgrams.values().stream().mapToLong(i->i).sum();
 		
 		k = Decryptor.decipher(r, k, child);
@@ -69,7 +69,14 @@ public class SimulatedAnnealing {
 				
 				if (maxScore > bestScore){
 					bestScore = maxScore;
+					
+					System.out.println("iteration: " + iter);
+					System.out.println("new bestScore using key " + new String(child));
+					System.out.println("new bestScore " + bestScore);
+					System.out.println("new text " + new String(k));
+					System.out.println();
 				}
+				iter++;
 			}
 		}
 	}
