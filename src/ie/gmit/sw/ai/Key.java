@@ -14,14 +14,13 @@ public class Key {
 				return(keySwapCols(newKey, (int)(Math.random()*5), (int)(Math.random()*5)));
 			case 7:
 			case 8:
-				System.out.println("2%");
+				return(keyFlipRows(newKey));
 			case 9:
 			case 10:
 				System.out.println("2%");
 			default:
 				return(keySwapChars(newKey, (int)(Math.random()*25), (int)(Math.random()*25)));
 		}
-		return newKey;
 	}
 	
 	public static char[] keyReverse(char[] newKey) {	
@@ -63,6 +62,24 @@ public class Key {
 		char temp = newKey[i1];
 		newKey[i1] = newKey[i2];
 		newKey[i2] = temp;
+		
+		return newKey;
+	}
+	
+	public static char[] keyFlipRows(char[] newKey) {
+		int i;
+		char temp;
+		int l = -1;
+		
+		for(int j = 4; j > 2; j--)
+		{
+			l++;
+			for (i = 0; i < 5; i++) {
+				temp = newKey[l * 5 + i];
+				newKey[l * 5 + i] = newKey[j * 5 + i];
+				newKey[j * 5 + i] = temp;
+			}
+		}
 		
 		return newKey;
 	}
