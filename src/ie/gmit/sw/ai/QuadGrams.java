@@ -5,6 +5,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+//time complexity of map.put is O(1)
+//time of looping through text is O(n)
+//this results in this class's time complexity to O(n)
+//space complexity of this class is O(n)
+
 public class QuadGrams {
 	//method to assign 4grams.txt contents to Map<String, Integer>
 	public static Map<String, Integer> readQuadgrams(BufferedReader input2) throws IOException

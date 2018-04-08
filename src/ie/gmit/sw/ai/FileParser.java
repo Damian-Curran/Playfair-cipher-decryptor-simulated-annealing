@@ -7,6 +7,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+//time complexity validateText is O(n)
+//this results in this class's time complexity to O(n)
+//space complexity of this class is O(n) from the array in validateText
+
 public class FileParser {
 	//parsing files method
 	public static BufferedReader gramReader(String string) throws IOException

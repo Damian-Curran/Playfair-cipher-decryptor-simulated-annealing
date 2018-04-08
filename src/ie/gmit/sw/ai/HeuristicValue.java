@@ -2,6 +2,11 @@ package ie.gmit.sw.ai;
 
 import java.util.Map;
 
+//time complexity of map.get is O(1)
+//time of looping through text is O(n)
+//this results in this class's time complexity to O(n)
+//space complexity of this class is O(n), as you are looping through quadgrams map to find frequency if there is one
+
 public class HeuristicValue {
 	//method to get heuristic log score of current key
 	public static double totalScore(Map<String, Integer> quadgrams, long totalQuadgrams, char[] ks)

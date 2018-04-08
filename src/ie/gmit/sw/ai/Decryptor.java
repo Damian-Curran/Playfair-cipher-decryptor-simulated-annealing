@@ -1,5 +1,9 @@
 package ie.gmit.sw.ai;
 
+//time complexity of class is O(n) because of for loop in decipher class
+//this results in this class's time complexity to O(n)
+//space complexity of this class is O(n)
+
 public class Decryptor {
 	public static char[] decipher(char[] r, char[] k, char[] child)
 	{
