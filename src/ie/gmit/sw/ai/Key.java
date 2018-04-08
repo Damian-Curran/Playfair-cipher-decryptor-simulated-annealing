@@ -19,7 +19,7 @@ public class Key {
 			case 10:
 				System.out.println("2%");
 			default:
-				System.out.println("90%");
+				return(keySwapChars(newKey, (int)(Math.random()*25), (int)(Math.random()*25)));
 		}
 		return newKey;
 	}
@@ -55,6 +55,14 @@ public class Key {
 			newKey[i * 5 + c1] = newKey[i * 5 + c2];
 			newKey[i * 5 + c2] = temp;
 		}
+		
+		return newKey;
+	}
+	
+	public static char[] keySwapChars(char[] newKey, int i1, int i2) {	
+		char temp = newKey[i1];
+		newKey[i1] = newKey[i2];
+		newKey[i2] = temp;
 		
 		return newKey;
 	}
