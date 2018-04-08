@@ -9,5 +9,10 @@ public class CipherBreaker {
 		BufferedReader input2 = FileParser.gramReader("4grams.txt");
 		
 		String validContent = FileParser.validateText(content);
+		
+		char[] r = validContent.toCharArray();
+		char[] k = validContent.toCharArray();
+		
+		SimulatedAnnealing.saStart(r, k, validContent, input2);
 	}
 }
