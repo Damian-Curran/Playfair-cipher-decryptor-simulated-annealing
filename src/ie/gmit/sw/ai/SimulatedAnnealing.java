@@ -2,11 +2,13 @@ package ie.gmit.sw.ai;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.Map;
 
 public class SimulatedAnnealing {
 	private static char[] parent = null;
+	private static SecureRandom rand;
 	
 	public static void saStart(char[] r, char[] k, String content, BufferedReader input2) throws IOException
 	{
@@ -26,7 +28,7 @@ public class SimulatedAnnealing {
 	public static void simulatedAnnealing(char[] r, char[] k, String content, Map<String, Integer> quadgrams, double temp)
 	{
 		char[] child = parent.clone();
-		double maxScore, bestScore, score, diff;
+		double maxScore, bestScore, score, diff, prob;
 		int transitions = 50000;
 		int count = 0;
 		long totalQuadgrams = quadgrams.values().stream().mapToLong(i->i).sum();
@@ -55,6 +57,13 @@ public class SimulatedAnnealing {
 				if(diff > 0){
 					maxScore = score;
 					parent = child.clone();
+				}
+				else if(count > 0){
+					prob = Math.exp((diff / i));
+					if(prob > rand.nextDouble()){
+						maxScore = score;
+						parent = child.clone();
+					}
 				}
 			}
 		}
