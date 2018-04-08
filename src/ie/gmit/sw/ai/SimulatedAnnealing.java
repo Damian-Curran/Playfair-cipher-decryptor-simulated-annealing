@@ -33,6 +33,7 @@ public class SimulatedAnnealing {
 		int transitions = 50000;
 		int count = 0, iter = 0;
 		long totalQuadgrams = quadgrams.values().stream().mapToLong(i->i).sum();
+		String bestText = "";
 		
 		k = Decryptor.decipher(r, k, child);
 		
@@ -69,6 +70,7 @@ public class SimulatedAnnealing {
 				
 				if (maxScore > bestScore){
 					bestScore = maxScore;
+					bestText = k.toString();
 					
 					System.out.println("iteration: " + iter);
 					System.out.println("new bestScore using key " + new String(child));
