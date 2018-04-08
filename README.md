@@ -111,3 +111,27 @@ The generation of a random 25-letter key on line 1 only requires that we shuffle
 alphabet. A simple algorithm for achieving this was published in 1938 by Fisher and Yates.
 The Fisher–Yates Shuffle generates a random permutation of a finite sequence, i.e. it randomly
 shuffles an array key of n elements (indices 0..n-1) 
+
+
+## Using n-Gram Statistics as a Heuristic Function
+
+An n-gram (gram = word or letter) is a substring of a word(s) of length n and can be used to
+measure how similar some decrypted text is to English. For example, the quadgrams (4-grams)
+of the word “HAPPYDAYS” are “HAPP”, “APPY”, “PPYD”, “PYDA”, “YDAY” and
+“DAYS”. A fitness measure or heuristic score can be computed from the frequency of
+occurrence of a 4-gram, q, as follows: P(q) = count(q) / n, where n is the total number of 4-
+grams from a large sample source. An overall probability of the phrase “HAPPYDAYS” can
+be accomplished by multiplying the probability of each of its 4-grams:
+
+P(HAPPYDAYS) = P(HAPP) × P(APPY) × P(PPYD) × P(PYDA) × P(YDAY)
+
+One side effect of multiplying probabilities with very small floating point values is that
+underflow can occur1 if the exponent becomes too low to be represented. For example, a Java
+float is a 32-bit IEEE 754 type with a 1-bit sign, an 8-bit exponent and a 23-bit mantissa. The
+64-bit IEEE 754 double has a 1-bit sign, a 11-bit exponent and a 52-bit mantissa. A simple way
+of avoiding this is to get the log (usually base 10) of the probability and use the identity log(a
+× b) = log(a) + log(b). Thus, the score, h(n), for “HAPPYDAYS” can be computed as a log
+probability:
+
+log10(P(HAPPYDAYS)) = log10(P(HAPP)) + log10(P(APPY)) + log10(P(PPYD)) +
+log10(P(PYDA)) + log10(P(YDAY)
