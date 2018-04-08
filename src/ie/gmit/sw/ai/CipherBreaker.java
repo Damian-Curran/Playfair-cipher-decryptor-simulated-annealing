@@ -9,6 +9,7 @@ public class CipherBreaker {
 		boolean exit = false;
 		Scanner scanner = new Scanner(System.in);
 		String fname = "";
+		String content = "";
 		
 		while(exit == false)
 		{
@@ -21,11 +22,19 @@ public class CipherBreaker {
 		    
 		    switch (choice) {
 		        case 1:
-		            System.out.print("Name: ");
-		            fname = scanner.next();
-		            fname += ".txt";
-		            
-		            String content = FileParser.gramReader(fname).readLine();
+		        	while(content.equals(""))
+		        	{
+		        		System.out.print("Name: ");
+			            fname = scanner.next();
+			            fname += ".txt";
+			            
+			            try{
+			            	content = FileParser.gramReader(fname).readLine();
+			            }catch(java.io.FileNotFoundException name){
+			            	System.out.println("File not found, please try again");
+			            }
+			            
+		        	}
 		            
 		            BufferedReader input2 = FileParser.gramReader("4grams.txt");
 		    		
