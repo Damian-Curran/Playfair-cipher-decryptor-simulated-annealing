@@ -68,3 +68,15 @@ Create a “box” inside the matrix with each diagraph letter as a corner and r
 letter at the opposite corner of the same row, e.g. AR→SI. 
 This can also be expressed as cipher(B, P)={matrix[row(B)][col(P)], matrix[row(P)][col(B)]}. 
 Reverse the process to decrypt a cypher-text diagraph.
+
+#### Rule 2: Diagraph Letters in Same Row
+
+Replace any letters that appear on the same row with the letters to their immediate
+right, wrapping around the matrix if necessary. Decrypt by replacing cipher-text letters
+the with letters on their immediate left.
+
+#### Rule 3: Diagraph Letters in Same Column
+
+Replace any letters that appear on the same column with the letters immediately below,
+wrapping back around the top of the column if necessary. Decrypt by replacing ciphertext
+letters the with letters immediately above.
