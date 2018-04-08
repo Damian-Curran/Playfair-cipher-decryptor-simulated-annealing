@@ -22,8 +22,11 @@ public class SimulatedAnnealing {
 	
 	public static void simulatedAnnealing(char[] r, char[] k, String content, Map<String, Integer> quadgrams)
 	{
+		char[] child = parent.clone();
 		long totalQuadgrams = quadgrams.values().stream().mapToLong(i->i).sum();
 		
 		System.out.println(totalQuadgrams);
+		
+		k = Decryptor.decipher(r, k, child);
 	}
 }
