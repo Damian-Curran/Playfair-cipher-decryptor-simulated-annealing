@@ -56,9 +56,10 @@ public class FileParser {
 	public static void output(String text) throws IOException
 	{
 		System.out.println(text);
-		//prints output to results.txt file
+		//sets filewriter location and the length of the output
 		BufferedWriter bufferedWriter = new BufferedWriter (new FileWriter("result.txt"), text.length());
 		
+		//prints output to results.txt file
 		bufferedWriter.write(text);
 		
 		//close bufferedWriter
