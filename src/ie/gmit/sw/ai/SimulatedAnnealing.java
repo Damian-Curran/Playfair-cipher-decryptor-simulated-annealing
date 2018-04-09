@@ -43,7 +43,9 @@ public class SimulatedAnnealing {
 	//method where most of the work is done
 	public static void simulatedAnnealing(char[] r, char[] k, String content, Map<String, Integer> quadgrams, double temp) throws IOException
 	{
+		//counter to check when the last best score was picked
 		int hasChanged = 0;
+		//sets the limit of how many iterations after your last best score
 		int check = (10000000/(int)temp);
 		//set to be used later
 		rand = new SecureRandom();
@@ -68,6 +70,7 @@ public class SimulatedAnnealing {
 		//sets best as max
 		bestScore = maxScore;
 		
+		//used to exit loop 
 		loop:
 		//temp loop which controls the probability of taking a bad key
 		for(double i = temp; i > 0; i -= 1)
@@ -119,8 +122,10 @@ public class SimulatedAnnealing {
 					hasChanged = 0;
 				}
 				
+				//check if last time best score changed is greater than limit of iterations between best scores 
 				if(hasChanged > check)
 				{
+					//break outside of loops
 					break loop;
 				}
 				
@@ -129,6 +134,7 @@ public class SimulatedAnnealing {
 				hasChanged++;
 			}
 		}
+		//calls output method in FileParser class and writes best decrypted text to rtesults.xt
 		FileParser.output(bestText);
 	}
 }
