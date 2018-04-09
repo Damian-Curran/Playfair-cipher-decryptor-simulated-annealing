@@ -34,7 +34,7 @@ public class SimulatedAnnealing {
 		quadgrams = QuadGrams.readQuadgrams(input2);
 		
 		//calculates temperate for current encrypted file
-		temp = ((content.length()/100)*1.8)+40;
+		temp = ((content.length()/100)*2)+10;
 		
 		//calls SA and passes needed variables
 		SimulatedAnnealing.simulatedAnnealing(r, k, content, quadgrams, temp);
@@ -43,6 +43,8 @@ public class SimulatedAnnealing {
 	//method where most of the work is done
 	public static void simulatedAnnealing(char[] r, char[] k, String content, Map<String, Integer> quadgrams, double temp) throws IOException
 	{
+		int hasChanged = 0;
+		int check = (10000000/(int)temp);
 		//set to be used later
 		rand = new SecureRandom();
 		//clone parent key to child key
@@ -66,6 +68,7 @@ public class SimulatedAnnealing {
 		//sets best as max
 		bestScore = maxScore;
 		
+		loop:
 		//temp loop which controls the probability of taking a bad key
 		for(double i = temp; i > 0; i -= 1)
 		{
@@ -113,10 +116,17 @@ public class SimulatedAnnealing {
 					System.out.println("new bestScore " + bestScore);
 					System.out.println("new text " + new String(k));
 					System.out.println();
+					hasChanged = 0;
+				}
+				
+				if(hasChanged > check)
+				{
+					break loop;
 				}
 				
 				//keeps track of what iteration the loop is on
 				iter++;
+				hasChanged++;
 			}
 		}
 		FileParser.output(bestText);
