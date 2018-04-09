@@ -62,6 +62,10 @@ public class CipherBreaker {
 		            break;
 		        default:
 		    }
+		    //sets fname back to empty string
+		    fname = "";
+		    //sets content of file to empty string
+		    content = "";
 		}
 
 	    scanner.close();
