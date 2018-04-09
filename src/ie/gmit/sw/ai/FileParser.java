@@ -55,12 +55,11 @@ public class FileParser {
 	//method which outputs the decrypted text associated with the heuristic value
 	public static void output(String text) throws IOException
 	{
+		System.out.println(text);
 		//prints output to results.txt file
 		BufferedWriter bufferedWriter = new BufferedWriter (new FileWriter("result.txt"), text.length());
 		
-		char[] outputText = text.toCharArray();
-		
-		bufferedWriter.write(outputText);
+		bufferedWriter.write(text);
 		
 		//close bufferedWriter
 		bufferedWriter.close();

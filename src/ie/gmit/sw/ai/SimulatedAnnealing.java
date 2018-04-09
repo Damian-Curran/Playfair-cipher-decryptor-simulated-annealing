@@ -106,7 +106,7 @@ public class SimulatedAnnealing {
 				//if new best score found, output stats 
 				if (maxScore > bestScore){
 					bestScore = maxScore;
-					bestText = k.toString();
+					bestText = new String(k);
 					
 					System.out.println("iteration: " + iter);
 					System.out.println("new bestScore using key " + new String(child));
@@ -114,6 +114,7 @@ public class SimulatedAnnealing {
 					System.out.println("new text " + new String(k));
 					System.out.println();
 				}
+				
 				//keeps track of what iteration the loop is on
 				iter++;
 			}
