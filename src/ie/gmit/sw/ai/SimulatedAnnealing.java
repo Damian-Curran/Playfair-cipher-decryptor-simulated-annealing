@@ -6,6 +6,9 @@ import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.Map;
 
+//time complexity for this class is O(n^2) due to the nested for loop
+//space complexity for this class is O(n)
+
 public class SimulatedAnnealing {
 	//class variable parent which holds the current best key
 	private static char[] parent = null;

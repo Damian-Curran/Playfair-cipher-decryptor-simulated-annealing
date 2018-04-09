@@ -3,7 +3,7 @@ package ie.gmit.sw.ai;
 //time complexity StringBuilder.reverse() is O(n)
 //time of looping through arrays in flipCols and flipRows is O(n^2)
 //this results in this class's time complexity to O(n^2)
-//space complexity of this class is O(n^2)
+//space complexity of this class is O(n)
 
 public class Key {
 	//method that randomizes what changes to apply to the key

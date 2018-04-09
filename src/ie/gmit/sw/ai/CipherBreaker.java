@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Scanner;
 
+//time complexity for this class is O(n) due to the user controlled while loop
+//space complexity for this class is O(1)
+
 public class CipherBreaker {
 	public static void main(String[] args) throws IOException {
 		//variables needed for for reading text and looping
