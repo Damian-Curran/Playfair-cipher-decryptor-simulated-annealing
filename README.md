@@ -135,3 +135,19 @@ probability:
 
 log10(P(HAPPYDAYS)) = log10(P(HAPP)) + log10(P(APPY)) + log10(P(PPYD)) +
 log10(P(PYDA)) + log10(P(YDAY)
+
+
+## Using this repository
+git clone https://github.com/Damian404/Playfair-cipher-decryptor-simulated-annealing.git
+
+Import clone into eclipse
+
+Run CipherBreaker class
+
+Alternativly, you can launch playfair.jar from the cmd.
+
+To do this go to the directory with the playfair.jar and enter the following command:
+java –cp ./playfair.jar ie.gmit.sw.ai.CipherBreaker
+
+You can now enter the filename of which you want to decrypt.
+*Note, you need to have the file in the directory where the project is launched from
